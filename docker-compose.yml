@@ -1,0 +1,47 @@
+name: swoons
+
+services:
+  mongo:
+    image: mongo:6.0.26
+    ports:
+    # In prod you wanna remove this so you dont expose that port to the world
+      - 27017:27017
+    volumes:
+      - mongo_data:/data/db
+    networks:
+      - swoons
+  api:
+    build:
+      context: ./server
+      dockerfile: Dockerfile
+    restart: unless-stopped
+    env_file: ./client/.env
+    volumes:
+      - ./server:/app
+      - /app/node_modules
+    networks:
+      - swoons
+    ports:
+      - "3000:3000"
+    depends_on: 
+      - mongo
+  client:
+    build:
+      context: ./client
+      dockerfile: Dockerfile
+    restart: unless-stopped
+    env_file: ./client/.env
+    volumes:
+      - ./client:/app
+      - /app/node_modules
+    networks:
+      - swoons
+    ports:
+      - 5173:5173
+    depends_on:
+      - api
+volumes:
+  mongo_data:
+networks:
+  swoons:
+    driver: bridge
