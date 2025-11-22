@@ -75,7 +75,7 @@ const UserProfile = () => {
       return;
     } else {
       //S3 Bucket Name
-      const S3_BUCKET = "swoons-photos";
+      const S3_BUCKET = "yr-swoons-photos";
 
       //Bucket Region
       const REGION = "us-east-1";
@@ -124,7 +124,7 @@ const UserProfile = () => {
 
   const resetPic = async () => {
     //  //S3 Bucket Name
-    //  const S3_BUCKET = "swoons-photos";
+    //  const S3_BUCKET = "yr-swoons-photos";
 
     //  //Bucket Region
     //  const REGION = "us-east-1";
@@ -175,13 +175,13 @@ const UserProfile = () => {
       url: apiUrl,
       headers: {},
       data: {
-        url: "https://swoons-photos.s3.amazonaws.com/default_profile.png",
+        url: "https://yr-swoons-photos.s3.amazonaws.com/default_profile.png",
       },
     });
     //console.log("Profile Pic deleted");
     let updatedUser = {
       ...currentUser,
-      picture: "https://swoons-photos.s3.amazonaws.com/default_profile.png",
+      picture: "https://yr-swoons-photos.s3.amazonaws.com/default_profile.png",
     };
     updateUser(updatedUser);
   };

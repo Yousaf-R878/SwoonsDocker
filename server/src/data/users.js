@@ -32,7 +32,7 @@ export let create = async (id, firstName, lastName, email, username) => {
     username: username,
     likedDates: [],
     dates: [],
-    picture: "https://swoons-photos.s3.amazonaws.com/default_profile.png",
+    picture: "https://yr-swoons-photos.s3.amazonaws.com/default_profile.png",
     accountCreationDate: new Date(),
     bio: "",
   };
