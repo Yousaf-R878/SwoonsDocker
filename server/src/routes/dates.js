@@ -92,7 +92,7 @@ async function populateEventWithTripAdvisorData(event) {
         );
         locPhotos.data.data = locPhotos.data.data.splice(0, 3);
         event.tripAdvisorLocationImages = locPhotos.data.data.map(
-            (photo) => photo.images.medium.url
+            (photo) => photo.images.large?.url ||photo.images.medium.url
         );
 
         let locInfo = await axios.get(

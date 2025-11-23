@@ -262,7 +262,11 @@ const CarouselCmp = ({
                         key={index}
                         src={image}
                         className={classStuff}
-                        style={{ width: imgWidth, height: imgHeight }}
+                        style={{ 
+                            width: imgWidth, 
+                            height: imgHeight,
+                            objectFit: 'cover'
+                        }}
                     />
                 ))}
             </Carousel>
