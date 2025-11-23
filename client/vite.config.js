@@ -7,6 +7,11 @@ export default defineConfig({
   plugins: [react()],
   server: {
     host : true,
+    allowedHosts: [
+      'swoons.yraj.net',
+      'localhost',
+      '.localhost',
+    ],
   },
   resolve: {
     alias: {
