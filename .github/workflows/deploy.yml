@@ -1,0 +1,22 @@
+name: Deploy Swoons to LXC (Self-Hosted Runner)
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: self-hosted
+
+    steps:
+      - name: Pull latest code
+        run: |
+          cd /opt/SwoonsDocker
+          git pull
+
+      - name: Rebuild and restart Docker Compose stack
+        run: |
+          cd /opt/SwoonsDocker
+          docker compose down
+          docker compose up -d --build
