@@ -11,7 +11,7 @@ app.use(
       "http://localhost:5173", 
       "http://swoons.yraj.net",
       "https://swoons.yraj.net",
-      "https://api.swoons.yraj.net",
+      "http://api.swoons.yraj.net",
     ], // Array of allowed origins
     credentials: true, // Allow cookies to be sent
   })
