@@ -10,15 +10,15 @@ import {
   SheetTrigger,
 } from "@/components/ui/sheet";
 import SignupForm from "../SignUpForm/SignUpForm";
-import { signInWithPopup, GoogleAuthProvider, getAuth } from "firebase/auth";
+import { signInWithPopup, GoogleAuthProvider } from "firebase/auth";
 import "./SignUpSheet.css";
 import apiClient from "@/src/services/apiClient";
+import auth from "@/src/firebaseConfig";
 import { AuthorizeContext } from "@/src/contexts/auth";
 
 const SignupButton = () => {
   async function handleGoogle() {
     const provider = new GoogleAuthProvider();
-    const auth = getAuth();
     const result = await signInWithPopup(auth, provider);
     const userExists = await apiClient.checkEmail(result.user.email);
     if (!userExists.data.exists) {

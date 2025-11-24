@@ -8,11 +8,11 @@ import { Button } from "@/components/ui/button";
 import { signInWithPopup, GoogleAuthProvider, getAuth } from "firebase/auth";
 import "./LoginDialog.css";
 import apiClient from "@/src/services/apiClient";
+import auth from "@/src/firebaseConfig";
 
 const LoginDialog = () => {
   async function handleGoogle() {
     const provider = new GoogleAuthProvider();
-    const auth = getAuth();
     const result = await signInWithPopup(auth, provider);
     const userExists = await apiClient.checkEmail(result.user.email);
     if (!userExists.data.exists) {
