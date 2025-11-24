@@ -6,9 +6,9 @@ import {
   signInWithPopup,
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
-  getAuth,
   onAuthStateChanged,
 } from "firebase/auth";
+import auth from "../firebaseConfig";
 
 const AuthorizeContext = createContext();
 
@@ -16,7 +16,6 @@ const AuthorizeProvider = ({ children }) => {
   const [initialized, setInitialized] = useState(false);
   const [currentUser, setCurrentUser] = useState(null);
 
-  const auth = getAuth();
 
   const initialize = async () => {
     try {
