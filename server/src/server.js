@@ -7,7 +7,11 @@ const app = express();
 
 app.use(
   cors({
-    origin: ["http://localhost:5173"], // Array of allowed origins
+    origin: [
+      "http://localhost:5173", 
+      "http://swoons.yraj.net",
+      "https://swoons.yraj.net",
+    ], // Array of allowed origins
     credentials: true, // Allow cookies to be sent
   })
 );
